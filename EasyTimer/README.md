@@ -1,1 +1,1 @@
-EasyTimer based on the system call Epoll.
+Easy timer which based on the Linux system call Epoll.
