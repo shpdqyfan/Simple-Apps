@@ -18,5 +18,5 @@ add_library(${TIMER_LIB_NAME} SHARED ${TIMER_SOURCE})
 
 set(EASYTIMER_MAIN_SOURCE main.cpp) 
 add_executable(appEasyTimer ${EASYTIMER_MAIN_SOURCE}) 
-target_link_libraries(appEasyTimer ${THREAD_LIB_NAME} ${TIMER_LIB_NAME} pthread)
+target_link_libraries(appEasyTimer ${THREAD_LIB_NAME} ${TIMER_LIB_NAME} pthread boost_system)
 
