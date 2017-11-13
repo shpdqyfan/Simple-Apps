@@ -137,7 +137,7 @@ void EasyTimer::resetExpireForDeadlineTimer(const TimeStamp& expire)
     std::cout<<"resetExpireForDeadlineTimer, in millisecond="<<millisec<<"will be expired"<<std::endl;
 
     timerIoObj.expires_from_now(boost::posix_time::millisec(millisec));
-    timerIoObj.asyn_wait(boost::bind(&EasyTimer::handleExpiredTimersCb,
+    timerIoObj.async_wait(boost::bind(&EasyTimer::handleExpiredTimersCb,
 	this, boost::asio::placeholders::error));
 }
 
