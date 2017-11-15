@@ -28,13 +28,15 @@ public:
     void restartTimer(const std::string& id);
     void cancelTimer(const std::string& id);
     void handleExpiredTimersCb(const boost::system::error_code& error);
+    void handleKeepAliveTimerCb(const boost::system::error_code& error);
     void stop();
 
 protected:
     void run();
 
 private:
-    void resetExpireForDeadlineTimer(const TimeStamp& expire);
+    void timerIoObjResetExpire(const TimeStamp& expire);
+    void timerIoObjKeepAlive();
 	
     bool polling;
     boost::asio::io_service ios;
