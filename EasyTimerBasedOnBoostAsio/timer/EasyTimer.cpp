@@ -15,7 +15,7 @@
 int64_t howMuchTimeFromNow(TimeStamp expire)
 {
     int64_t milliseconds = expire.getMillisecondSinceEpoch2Expire() - TimeStamp::now();
-    if(0 > milliseconds)
+    if(0 >= milliseconds)
     {
         milliseconds = 1;
     }
