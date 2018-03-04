@@ -82,12 +82,12 @@ class Timer
 {
 public:
     Timer(const std::string& id, uint64_t interval, const TimeStamp& expire, 
-        const TimerEventHandleCb& cb)
+        const TimerEventHandleCb& cb, bool rep = true)
         : timerId(id)
         , myInterval(interval)
         , nextExpire(expire)
         , myCb(cb)
-        , repeat(true) {}
+        , repeat(rep) {}
 
     void timeout()
     {
@@ -151,7 +151,7 @@ public:
     ~TimerSet();
 
     void addTimer(const std::string& id, uint64_t interval, const TimerEventHandleCb& cb, 
-        const TimeStamp& nextExpire, bool& earliestChanged);
+        const TimeStamp& nextExpire, bool& earliestChanged, bool rep = true);
     void updateTimer(const std::string& id, uint64_t newInterval, const TimeStamp& nextExpire, 
         bool& earliestChanged);
     void restartTimer(const std::string& id, TimeStamp& nextExpire, bool& earliestChanged);

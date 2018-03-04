@@ -23,7 +23,7 @@ public:
     EasyTimer();
     ~EasyTimer();
 
-    void addTimer(const std::string& id, uint64_t interval, const TimerEventHandleCb& cb);
+    void addTimer(const std::string& id, uint64_t interval, const TimerEventHandleCb& cb, bool rep = true);
     void updateTimer(const std::string& id, uint64_t newInterval);
     void restartTimer(const std::string& id);
     void cancelTimer(const std::string& id);

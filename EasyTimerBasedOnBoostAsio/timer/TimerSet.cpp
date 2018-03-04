@@ -21,11 +21,11 @@ TimerSet::~TimerSet()
 }
 
 void TimerSet::addTimer(const std::string& id, uint64_t interval, const TimerEventHandleCb& cb, 
-        const TimeStamp& nextExpire, bool& earliestChanged)
+        const TimeStamp& nextExpire, bool& earliestChanged, bool rep)
 {
     std::unique_lock<std::recursive_mutex> guard(myMutex);
 
-    TimerPtr tp(new Timer(id, interval, nextExpire, cb));
+    TimerPtr tp(new Timer(id, interval, nextExpire, cb, rep));
     earliestChanged = insertTimer(tp);
 }
 
