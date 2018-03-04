@@ -98,12 +98,12 @@ EasyTimer::~EasyTimer()
     close(wakeupFd);
 }
 
-void EasyTimer::addTimer(const std::string& id, uint64_t interval, const TimerEventHandleCb& cb)
+void EasyTimer::addTimer(const std::string& id, uint64_t interval, const TimerEventHandleCb& cb, bool rep)
 {
     std::cout<<"addTimer, id="<<id<<", interval="<<interval<<std::endl;
     bool earliestChanged = false;
     TimeStamp expire(TimeStamp::expire(interval));
-    timerSetPtr->addTimer(id, interval, cb, expire, earliestChanged);
+    timerSetPtr->addTimer(id, interval, cb, expire, earliestChanged, rep);
     if(earliestChanged)
     {
         resetTimerfd(timerFd, expire);

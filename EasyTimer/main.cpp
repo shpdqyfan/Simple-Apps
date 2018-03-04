@@ -29,8 +29,8 @@ int main()
 
     std::cout<<"EasyTimerPtr start complete now"<<std::endl;
 
-    myTimerPtr->addTimer("t1", 2000, timerTriggerCallback);
-    myTimerPtr->addTimer("t2", 5000, timerTriggerCallback);
+    myTimerPtr->addTimer("t1", 2000, timerTriggerCallback, false);
+    myTimerPtr->addTimer("t2", 5000, timerTriggerCallback, true);
 
     sleep(8);
 
